@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online Chatroom</title>
+    <link rel='stylesheet' href="/static/css/bootstrap.min.css"/>
+    <link rel='stylesheet' href="/static/css/style.css"/>
+    <link rel='stylesheet' href="/static/css/index.css"/>
+</head>
+<body>
+<header id="header" class="header">
+    <h3 class="h3 text-center">Online Chatroom</h3>
+</header><!-- /header -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default main" id="mainArea">
+                <div id="cover" class="cover-empty">
+                    <h3>拖拽图片到此处发送</h3>
+                </div>
+                <div class="panel-heading"><span class="glyphicon glyphicon-earphone"></span>&nbsp;&nbsp;聊天内容</div>
+                <div class="panel-body" id="chat-board">
+                    <!-- <h2>I need a media </h2> -->
+                    <div class="msg-list-body" id="msg-list-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="side panel info panel-default">
+                <div class="panel-heading"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;个人信息</div>
+                <div class="panel-body">
+                    <!-- <p>昵称：windard</p> -->
+                    昵称：<span id="my-nickname"></span>
+                </div>
+            </div>
+            <div class="side panel panel-default list">
+                <div class="panel-heading"><span class="glyphicon glyphicon-th-list"></span>&nbsp;&nbsp;用户列表</div>
+                <!-- <div class="panel-body"> -->
+                <!-- 列表组 -->
+                <ul class="list-group">
+
+                </ul>
+                <!-- </div> -->
+                <div class="panel-footer">
+                    <p id="list-count">当前在线人数：人</p>
+                    <!-- 当前在线人数：5人 -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <form action="" accept-charset="utf-8" autocomplete="off">
+                <div class="input-group input-group-lg words">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="emotion-btn">
+                                <img src="/static/images/emotion_smile.png" alt="emotion">
+                            </button>
+                        </span>
+                    <input type="text" class="form-control" id="input-edit" placeholder="请输入聊天内容" autofocus>
+                    <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="send-message">
+                                <span class="glyphicon glyphicon-send"></span>&nbsp;&nbsp;
+                                发送
+                            </button>
+                        </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<footer class="container ">
+    <!-- @ <a href="https://windard.com" title="Windard">Windard</a> for <a href="http://1418019.top" title="1418019">1418019</a>   -->
+    @ <a href="https://windard.com" title="Windard">Windard</a>
+</footer>
+
+<!-- modal -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">请设置聊天昵称</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-push-2">
+                        <div class="alert alert-danger alert-dismissible" id="nickname-error" role="alert">
+                            <button type="button" class="close" data-dismiss="alert"><span
+                                    aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <p id="nickname-error-message"></p>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">昵称</span>
+                            <input type="text" id="nickname-edit" class="form-control" max-length="20"
+                                   placeholder="请输入昵称" autofocus>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="applyNicknameBtn">应用昵称</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/jquery-1.11.3.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/emotion.js"></script>
+<script src="/static/js/dropzone.js"></script>
+<script src="/static/js/index.js"></script>
+</body>
+</html>

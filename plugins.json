@@ -1,0 +1,13 @@
+{
+	"pluginName": "OnlineChatroom",
+	"description": "online chatroom for utools",
+	"main": "index.html",
+	"version": "0.0.1",
+	"features": [
+		{
+		  "code": "chatroom",
+		  "explain": "online chatroom",
+			"cmds":["online", "chatroom"]
+		}
+	]
+}
