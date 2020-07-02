@@ -3,6 +3,7 @@
 	"description": "online chatroom for utools",
 	"main": "index.html",
 	"version": "0.0.1",
+	"logo": "static/chatroom.png",
 	"features": [
 		{
 		  "code": "chatroom",

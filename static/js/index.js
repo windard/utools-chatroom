@@ -24,10 +24,7 @@ if (!window.MozWebSocket && !window.WebSocket ){
 	return
 }
 
-var websocket_url = (location.protocol === "https:" ? 'wss://' : 'ws://') + 
-	location.hostname + (location.port ? ':'+location.port: '') + "/websocket" +
-	location.pathname;
-
+var websocket_url = "ws://127.0.0.1:8347/websocket/"
 socket = new WebSocket(websocket_url);
 
 var needNickname = function(){
@@ -309,7 +306,7 @@ chat_Socket.init();
 
 
     $("div#mainArea").dropzone({
-        url: "/upload_image",
+            url: 'http://127.0.0.1:8347/upload_image',
         paramName: "image",
         clickable: false,
 		// 限制了也没有友好的提示
@@ -371,7 +368,7 @@ chat_Socket.init();
         fd.append("image", file)
 
         $.ajax({
-            url: '/upload_image',
+            url: 'http://127.0.0.1:8347/upload_image',
             type: 'post',
             data: fd,
             contentType: false,
