@@ -1,3 +1,12 @@
+body {
+  /*padding: 10px 50px;*/
+  font: 14px "Lucida Grande", MicroSoft YaHei, Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
 header{
 	margin-bottom: 20px;
 }
@@ -56,8 +65,6 @@ header{
 	background-color: rosybrown;
 }
 .message.jumbotron{
-	/*margin-top: 10px;*/
-	/*padding: 10px 0px;*/
 	padding-top: 10px;
 	padding-left: 15px;
 	padding-right: 15px;
@@ -79,8 +86,29 @@ header{
 footer{
 	margin-top: 30px;
 	margin-bottom: 10px;
-	/*position: fixed;*/
-	/*bottom: 10px;*/
+}
+
+@media (max-width: 992px) {
+	footer a{
+		display: none;
+	}
+
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+	.container {
+     	padding-right: 0;
+    	padding-left: 0;
+    }
+	#header h3{
+		display : none;
+	}
+	footer {
+		margin-bottom: 0;
+	}
+	.list .list-group{
+		height:217px;
+	}
 }
 
 @media (min-width: 1400px){
