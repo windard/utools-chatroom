@@ -2,8 +2,10 @@
 	"pluginName": "OnlineChatroom",
 	"description": "online chatroom for utools",
 	"main": "index.html",
+	"author": "Windard",
+	"homepage": "https://github.com/windard/utools-chatroom",
 	"version": "0.0.1",
-	"logo": "static/chatroom.png",
+	"logo": "static/images/chatroom.png",
 	"features": [
 		{
 		  "code": "chatroom",

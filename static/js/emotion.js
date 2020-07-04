@@ -37,7 +37,7 @@
 		return _text;
 	};
 
-	QxEmotion.path = 'http://127.0.0.1:9345/static/images/qqface/';
+	QxEmotion.path = 'https://cdn.jsdelivr.net/gh/windard/utools-chatroom/static/images/qqface/';
 
 	QxEmotion.data = {
 		'微笑' : '36.gif',

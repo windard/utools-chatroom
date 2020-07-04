@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Online Chatroom</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/windard/utools-chatroom/favicon.ico" />
     <!-- <link href='https://libs.jshub.com/twitter-bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet'> -->
-    <link href='https://cdn.staticfile.org/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css' rel='stylesheet'>
-    <link rel='stylesheet' href="http://127.0.0.1:9345/static/css/index.css"/>
+    <link href='https://cdn.staticfile.org/twitter-bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet'>
+    <link rel='stylesheet' href="https://cdn.jsdelivr.net/gh/windard/utools-chatroom/static/css/index.css"/>
+    <!-- <link rel='stylesheet' href="http://127.0.0.1:9345/static/css/index.css"/> -->
 </head>
 <body>
 <header id="header" class="header">
@@ -24,7 +26,6 @@
                 </div>
                 <div class="panel-heading"><span class="glyphicon glyphicon-earphone"></span>&nbsp;&nbsp;聊天内容</div>
                 <div class="panel-body" id="chat-board">
-                    <!-- <h2>I need a media </h2> -->
                     <div class="msg-list-body" id="msg-list-body">
                     </div>
                 </div>
@@ -34,30 +35,25 @@
             <div class="side panel info panel-default">
                 <div class="panel-heading"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;个人信息</div>
                 <div class="panel-body">
-                    <!-- <p>昵称：windard</p> -->
                     昵称：<span id="my-nickname"></span>
                 </div>
             </div>
             <div class="side panel panel-default list">
                 <div class="panel-heading"><span class="glyphicon glyphicon-th-list"></span>&nbsp;&nbsp;用户列表</div>
-                <!-- <div class="panel-body"> -->
-                <!-- 列表组 -->
                 <ul class="list-group">
 
                 </ul>
-                <!-- </div> -->
                 <div class="panel-footer">
                     <p id="list-count">当前在线人数：人</p>
-                    <!-- 当前在线人数：5人 -->
                 </div>
             </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12 col-sm-12">
             <form action="" accept-charset="utf-8" autocomplete="off">
                 <div class="input-group input-group-lg words">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button" id="emotion-btn">
-                                <img src="http://127.0.0.1:9345/static/images/emotion_smile.png" alt="emotion">
+                                <img src="https://cdn.jsdelivr.net/gh/windard/utools-chatroom/static/images/emotion_smile.png" alt="emotion">
                             </button>
                         </span>
                     <input type="text" class="form-control" id="input-edit" placeholder="请输入聊天内容" autofocus>
@@ -109,8 +105,9 @@
 <!-- <script src='https://libs.jshub.com/jquery/1.11.3/jquery.min.js'></script> -->
 <script src='https://cdn.staticfile.org/jquery/1.11.3/jquery.min.js'></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="http://127.0.0.1:9345/static/js/emotion.js"></script>
-<script src="http://127.0.0.1:9345/static/js/dropzone.js"></script>
-<script src="http://127.0.0.1:9345/static/js/index.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/windard/utools-chatroom/static/js/emotion.js"></script>
+<script src="https://cdn.staticfile.org/dropzone/5.7.0/dropzone.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/windard/utools-chatroom/static/js/index.js"></script>
+<!-- <script src="http://127.0.0.1:9345/static/js/index.js"></script> -->
 </body>
 </html>

@@ -22,28 +22,10 @@ header{
 	overflow: scroll;
 	overflow-x: hidden;
 }
-.main .panel-body::-webkit-scrollbar{
-    width:8px;
-    background-color:#ddd;
-    transition: all ease-in-out 0.5s;
-}
-.main .panel-body::-webkit-scrollbar-thumb{
-    background-color:#aaa;
-    border-radius:3px;
-}
 .list .list-group{
 	height:227px;
 	overflow: auto;
 	overflow-x: hidden; 
-}
-.list .list-group::-webkit-scrollbar{
-    width:8px;
-    background-color:#ddd;
-    transition: all ease-in-out 0.5s;
-}
-.list .list-group::-webkit-scrollbar-thumb{
-    background-color:#aaa;
-    border-radius:3px;
 }
 .list .list-group li:hover{
 	background-color: #f5f5f5;
@@ -111,6 +93,27 @@ footer{
 	}
 }
 
+@media (min-width: 1200px){
+	.list .list-group::-webkit-scrollbar{
+	    width:8px;
+	    background-color:#ddd;
+	    transition: all ease-in-out 0.5s;
+	}
+	.list .list-group::-webkit-scrollbar-thumb{
+	    background-color:#aaa;
+	    border-radius:3px;
+	}
+	.main .panel-body::-webkit-scrollbar{
+	    width:8px;
+	    background-color:#ddd;
+	    transition: all ease-in-out 0.5s;
+	}
+	.main .panel-body::-webkit-scrollbar-thumb{
+	    background-color:#aaa;
+	    border-radius:3px;
+	}
+}
+
 @media (min-width: 1400px){
 	.container{
 		width: 90%;
@@ -121,6 +124,7 @@ footer{
 	.list .list-group {
     	height: 397px;
 	}
+
 }
 
 .dz-drag-hover {
