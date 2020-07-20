@@ -4,13 +4,13 @@
 	"main": "index.html",
 	"author": "Windard",
 	"homepage": "https://github.com/windard/utools-chatroom",
-	"version": "0.0.5",
+	"version": "0.0.7",
 	"logo": "static/images/chatroom.png",
 	"features": [
 		{
 		  "code": "chatroom",
 		  "explain": "online chatroom",
-			"cmds":["online", "chatroom"]
+			"cmds":["online", "chatroom", "在线聊天室", "聊天室"]
 		}
 	]
 }

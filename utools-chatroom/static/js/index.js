@@ -24,9 +24,6 @@ if (!window.MozWebSocket && !window.WebSocket ){
 	return
 }
 
-var websocket_url = "ws://39.105.91.194:8090/websocket/"
-socket = new WebSocket(websocket_url);
-
 var needNickname = function(){
 	console.log("needNickname");
 	$("#nickname-error").hide();
@@ -105,13 +102,18 @@ var userQuit = function(_nick_name){
     chat_Socket.serverMessage(_nick_name+" 离开了聊天室 ( ⊙ o ⊙ ) … ",chat_Socket.getLocalHMS());
 };
 
-socket.onmessage = function(event) {
-	// data = jQuery.parseJSON(event.data);
+
+var websocket_url = (location.protocol === "https:" ? 'wss://' : 'ws://') +
+	location.hostname + (location.port ? ':'+location.port: '') + "/websocket" +
+	location.pathname;
+
+socket = new ReconnectingWebSocket("ws://39.105.91.194:8090/websocket/", null, {"maxReconnectAttempts": 2});
+
+
+ReconnectingWebSocket.prototype.onmessage = function(event) {
 	data = JSON.parse(event.data);
 	action = data['action'];
 	message = data['message'];
-	// action = event.data.slice(0, event.data.indexOf("$$"));
-	// message = event.data.slice(event.data.indexOf("$$")+2);
 	switch (action) {
 		case "needNickname": needNickname();
 							break;
@@ -140,19 +142,23 @@ socket.onmessage = function(event) {
 	}
 };
 
-var socketHeartbeat = setInterval(function()
-{
-	socket.send(JSON.stringify({"action": "heartbeat", "message": "ping"}));
-}, 10000); //10000 milliseconds = 10 seconds
 
-
-socket.onopen = function(event) {
+ReconnectingWebSocket.prototype.onopen = function(event) {
+	chat_Socket.hideReconnection()
 	chat_Socket.serverMessage("你已进入聊天室", chat_Socket.getLocalHMS());
+	ReconnectingWebSocket.prototype.socketHeartbeat = setInterval(function()
+	{
+		socket.send(JSON.stringify({"action": "heartbeat", "message": "ping"}));
+	}, 10000); //10000 milliseconds = 10 seconds
 };
 
-socket.onclose = function(event) {
-	clearInterval(socketHeartbeat);
+ReconnectingWebSocket.prototype.onclose = function(event) {
+	clearInterval(ReconnectingWebSocket.prototype.socketHeartbeat);
 	chat_Socket.serverMessage("聊天室已关闭。。。", chat_Socket.getLocalHMS());
+};
+
+ReconnectingWebSocket.prototype.ontotalclose = function(event) {
+	chat_Socket.showReconnection();
 };
 
 chat_Socket = {
@@ -169,6 +175,10 @@ chat_Socket = {
 		$("#send-message").on("click", function(event){
 			event.preventDefault();
 			self.applyMessage();
+		});
+		$("#msg-list-body").on("click", "#reconnection", function(event){
+			event.preventDefault();
+			socket.open();
 		});
 		$("form").submit(function(event) {
 			event.preventDefault();
@@ -227,6 +237,15 @@ chat_Socket = {
 		var message = '<div class="text-center sys-message">\
 							<span class="sys-tip"> 系统消息: '+_content+'    &nbsp;'+_time+'</span>\
 						</div>';
+		messages.append(message);
+		this.chatBodyToBottom();
+	},
+	hideReconnection: function(){
+		$("button.reconnection").hide();
+	},
+	showReconnection: function(){
+		var messages = $(".msg-list-body");
+		var message = '<button type="button" id="reconnection" class="center-block btn btn-success reconnection">ReConnection</button>'
 		messages.append(message);
 		this.chatBodyToBottom();
 	},
@@ -306,7 +325,7 @@ chat_Socket.init();
 
 
     $("div#mainArea").dropzone({
-            url: 'http://39.105.91.194:8090/upload_image',
+        url: "http://39.105.91.194:8090/upload_image",
         paramName: "image",
         clickable: false,
 		// 限制了也没有友好的提示

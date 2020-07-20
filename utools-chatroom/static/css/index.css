@@ -22,6 +22,9 @@ header{
 	overflow: scroll;
 	overflow-x: hidden;
 }
+.main .panel-body button#reconnection{
+	margin: 10px auto 10px;
+}
 .list .list-group{
 	height:227px;
 	overflow: auto;
