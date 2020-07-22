@@ -6,9 +6,13 @@
 
 ### 预览
 
-![chatroom_helloworld](./static/images/chatroom_helloworld.png)
+![chatroom_helloworld](https://imgkr.cn-bj.ufileos.com/33b08725-e5e6-4b92-b457-0b6dbcd12353.png)
 
 ### 更新日志
+
+#### 0.0.8
+
+- 更换聊天室图标
 
 #### 0.0.7
 

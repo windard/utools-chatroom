@@ -159,6 +159,7 @@ ReconnectingWebSocket.prototype.onclose = function(event) {
 
 ReconnectingWebSocket.prototype.ontotalclose = function(event) {
 	chat_Socket.showReconnection();
+	$("#login-modal").modal("hide");
 };
 
 chat_Socket = {

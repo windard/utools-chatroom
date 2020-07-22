@@ -4,7 +4,7 @@
 	"main": "index.html",
 	"author": "Windard",
 	"homepage": "https://github.com/windard/utools-chatroom",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"logo": "static/images/chatroom.png",
 	"features": [
 		{
