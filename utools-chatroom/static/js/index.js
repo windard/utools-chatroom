@@ -107,7 +107,7 @@ var websocket_url = (location.protocol === "https:" ? 'wss://' : 'ws://') +
 	location.hostname + (location.port ? ':'+location.port: '') + "/websocket" +
 	location.pathname;
 
-socket = new ReconnectingWebSocket("ws://39.105.91.194:8090/websocket/", null, {"maxReconnectAttempts": 2});
+socket = new ReconnectingWebSocket("ws://39.105.91.194:8090/websocket/", null, {"maxReconnectAttempts": 1});
 
 
 ReconnectingWebSocket.prototype.onmessage = function(event) {
@@ -246,7 +246,7 @@ chat_Socket = {
 	},
 	showReconnection: function(){
 		var messages = $(".msg-list-body");
-		var message = '<button type="button" id="reconnection" class="center-block btn btn-success reconnection">ReConnection</button>'
+		var message = '<button type="button" id="reconnection" class="center-block btn btn-success reconnection">点击重连</button>'
 		messages.append(message);
 		this.chatBodyToBottom();
 	},
@@ -263,6 +263,9 @@ chat_Socket = {
 		_content = QxEmotion.Parse(_content);
 		var messages = $(".msg-list-body");
 		var nickname = $("#my-nickname").text();
+		if (_nick_name != nickname) {
+			utools.showNotification(_nick_name+':'+_content)
+		}
 		var textalign = _nick_name == nickname ? "text-right" : "";
 		var label =  _nick_name == nickname ? "label-success" : "label-info";
 		var message = '<div class="message jumbotron '+textalign+' ">\
